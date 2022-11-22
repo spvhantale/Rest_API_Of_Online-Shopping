@@ -36,6 +36,9 @@
     -   spring.jpa.show-sql=true
     -   spring.mvc.pathmatch.matching-strategy = ANT_PATH_MATCHER
 
+-to check the swagger
+http://localhost:8088/swagger-ui/
+
 # Tech Stacks
 
 -   Java Core
