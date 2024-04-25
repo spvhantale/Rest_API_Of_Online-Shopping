@@ -34,10 +34,9 @@
     -   spring.datasource.password=**YourPassword**
     -   spring.jpa.hibernate.ddl-auto=update
     -   spring.jpa.show-sql=true
-    -   spring.mvc.pathmatch.matching-strategy = ANT_PATH_MATCHER
 
 -to check the swagger
-http://localhost:8088/swagger-ui/
+http://localhost:8088/swagger-ui/index.html#/
 
 # Tech Stacks
 
