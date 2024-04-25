@@ -2,6 +2,7 @@ package com.masai.service;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,10 +14,12 @@ import com.masai.model.Customer;
 import com.masai.repository.CustomerDAO;
 import com.masai.repository.SessionDAO;
 
-import net.bytebuddy.utility.RandomString;
+
 
 @Service
 public class LoginServiceImpl implements LoginService{
+	
+	private static final Random random=new Random();
 
 	@Autowired
 	private CustomerDAO cDao;
@@ -36,7 +39,7 @@ public class LoginServiceImpl implements LoginService{
 			}else {
 				if(c.get().getPassword().equals(login.getPassword())) {
 				
-				String key=RandomString.make(6);
+				String key=randomString(6);
 				
 				CurrentUsersSession currentuserSession= new CurrentUsersSession(c.get().getCustomerId(), key, LocalDateTime.now());
 				
@@ -65,5 +68,14 @@ public class LoginServiceImpl implements LoginService{
 			sDao.delete(session);
 			return "LogOut";
 		}
+	}
+	private String randomString(Integer num) {
+		String str="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&123456789";
+		StringBuilder sb = new StringBuilder(num);
+        for (int i = 0; i < num; i++) {
+            int index = random.nextInt(str.length());
+            sb.append(str.charAt(index));
+        }
+        return sb.toString();
 	}
 }

@@ -59,7 +59,7 @@ public class CustomerServiceImpl implements CustomerService{
 		if(cust.getCustomerId()==loginUser.getUserId()) {
 			for(Address a:cust.getAddresses()) {
 				a.setCustomer(cust);
-				Address ad=aDao.save(a);
+				aDao.save(a);
 			}
 			return cDao.save(cust);
 			

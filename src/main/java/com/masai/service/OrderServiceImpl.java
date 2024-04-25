@@ -1,14 +1,12 @@
 package com.masai.service;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import javax.persistence.criteria.Order;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +24,6 @@ import com.masai.model.Cart;
 import com.masai.model.CurrentUsersSession;
 import com.masai.model.Customer;
 import com.masai.model.Orders;
-import com.masai.repository.AddressDAO;
 import com.masai.repository.CartDAO;
 import com.masai.repository.CustomerDAO;
 import com.masai.repository.OrderDAO;
@@ -46,9 +43,7 @@ public class OrderServiceImpl implements OrderService{
 	
 	@Autowired
 	private CartDAO caDao;
-	
-	@Autowired
-	private AddressDAO aDao;
+
 
 	@Override
 	public Orders addOrder(OrderDTO order, String key) throws OrderException, CartException, LoginException,ProductException {
